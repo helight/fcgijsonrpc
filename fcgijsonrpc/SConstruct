@@ -1,0 +1,18 @@
+env = Environment()
+env.Append(CCFLAGS = ['-g'])
+env.Append(LINKFLAGS = ['-static'])
+env.Append(LIBS = ['fcgi', 'jsonrpc'])
+thirdparty = "../thirdparty/"
+env.Append(CPPPATH = [thirdparty + 'fcgi/include/',
+                      thirdparty,
+           ])
+env.Append(LIBPATH= [thirdparty + '/fcgi/lib/',
+                     thirdparty + '/jsonrpc/',
+           ])
+
+env.Program(
+    target = "test.fcgi",
+    source = ['test.cc', 'jsoncgirpc.cc',
+            ],
+)
+

@@ -1,0 +1,8 @@
+{"id":10,"jsonrpc":"2.0","Test.Print":"create_time"}
+{"id":10,"jsonrpc":"2.0","Print":"create_time"}
+{"id":10,"jsonrpc":"2.0","method":"Test.Print"}
+{"id":10,"jsonrpc":"2.0","method":"Print"}
+
+spawn-fcgi -d /data/babycode/jsonrpcfcgi/ -f /data/babycode/jsonrpcfcgi/test.fcgi -a 127.0.0.1 -p 9001
+
+spawn-fcgi -a 127.0.0.1 -p 9001 -C 1 ./test.fcgi

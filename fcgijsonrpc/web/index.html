@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	
+	<body>
+		<h1>
+			test
+		</h1>
+		<div style="height:300px; background-color:#f60;">
+		</div>
+		<div id=test1>dfsdfas</div>
+		<hr>
+		<div id=test2>dfsdfas</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("h1").click(function(){
+				$(this).hide(1000);
+				});
+		});
+		$("h1").css("background-color","red");
+		$("div").click(function(){$(this).slideUp(1000);});
+		//$.get("http://192.168.1.102/test.fcgi?{%22id%22:10,%22jsonrpc%22:%222.0%22,%22method%22:%22Test.Print%22}", function(result){
+		$.get('http://127.0.0.1/fcgi-bin/test.fcgi?{"id":10,"jsonrpc":"2.0","method":"Test.Print"}', function(result){
+			$("#test1").html(result);
+			});
+		$.post("http://127.0.0.1/fcgi-bin/test.fcgi", '{"id":10,"jsonrpc":"2.0","method":"show_project"}', function(result){
+		//$.post("http://192.168.102/test.fcgi", '{"id":10,"jsonrpc":"2.0","method":"show_project"}', function(result){
+			$("#test2").html(result);
+		});
+	</script>
+</html>
